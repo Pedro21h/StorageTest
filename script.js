@@ -1,5 +1,5 @@
 const form = document.getElementById("formCadastro");
-const nomeInut = document.getElementById("nome");
+const nomeInput = document.getElementById("nome");
 const idadeInput = document.getElementById("idade");
 const tabelaBody = document.getElementById("tabelaBody");
 
@@ -12,8 +12,8 @@ renderizarTabela();
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const nome = nomeInut.value.trim;
-    const idade = idadeInput.value.trim;
+    const nome = nomeInput.value.trim();
+    const idade = idadeInput.value.trim();
 
     //validação
 if (nome === "" && idade === ""){
@@ -29,11 +29,11 @@ const novoCadastro = {
 cadastros.push(novoCadastro);
 
 //salvar no Local storage
-localStorage.setItem("cadastro", Stringfy(cadastros));
+localStorage.setItem("Cadastro", JSON.stringify(cadastros));
 
-renderizarTabelaenderizarTabela();
+renderizarTabela();
 //limpa input
- nomeInut.value = "";
+ nomeInput.value = "";
  idadeInput.value ="";
 });
 
@@ -44,8 +44,8 @@ function renderizarTabela() {
         const tr = document.createElement("tr");
 
         tr.innerHTML = `
-        <td>${cadastros.nome}</td>
-        <td>${cadastros.idade}</td>
+        <td>${cadastro.nome}</td>
+        <td>${cadastro.idade}</td>
         `;
 
         tabelaBody.appendChild(tr);
